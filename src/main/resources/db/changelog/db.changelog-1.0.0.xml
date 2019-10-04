@@ -1,0 +1,156 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet author="JUPITER (generated)" id="1503460396396-1">
+        <createTable tableName="MG_INFO_FILES">
+            <column autoIncrement="true" name="INFO_ID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PATH" type="VARCHAR(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="STATUS" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ADDING_DATE" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PROCESSING_DATE" type="TIMESTAMP"/>
+            <column name="FINISH_DATE" type="TIMESTAMP"/>
+            <column name="FINISH_STATUS" type="VARCHAR(100)"/>
+            <column name="DESC" type="VARCHAR(500)"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1503460396396-2" author="JUPITER (generated)">
+        <sql endDelimiter="/">
+            declare
+            counter integer;
+            begin
+            select count(*)
+            into counter
+            from user_sequences
+            where sequence_name = 'infoos_id_seq';
+
+            if (counter = 0) then
+            execute immediate 'create sequence infoos_id_seq START WITH 1 nocache';
+            end if;
+            end;
+            /
+        </sql>
+    </changeSet>
+    <changeSet id="1503460396396-3" author="JUPITER (generated)">
+        <sql endDelimiter="/">
+            CREATE OR REPLACE TRIGGER "INC_ID"
+            BEFORE INSERT ON "MG_INFO_FILES"
+            FOR EACH ROW
+
+            BEGIN
+            SELECT infoos_id_seq.NEXTVAL
+            INTO :new."INFO_ID"
+            FROM dual;
+            END;
+            /
+        </sql>
+    </changeSet>
+
+    <!--*************************** create json file Table *********************-->
+    <changeSet author="JUPITER (generated)" id="1503460396396-4">
+        <createTable tableName="MG_JSON_FILES">
+
+            <column name="PATH" type="VARCHAR(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="THREAD_NAME" type="VARCHAR(255)">
+            </column>
+            <column name="TYPE" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COUNT_FOLDERS" type="INT" defaultValueNumeric="0"></column>
+            <column name="COUNT_DOCUMENTS" type="INT" defaultValueNumeric="0"></column>
+            <column name="INFO_FILE_ID" type="int">
+                <constraints unique="true" nullable="false" foreignKeyName="fk_json_infofile"
+                             references="MG_INFO_FILES(INFO_ID)"/>
+            </column>
+
+        </createTable>
+        <!--*********** 2 PK **********-->
+        <addPrimaryKey
+                columnNames="PATH, INFO_FILE_ID"
+                constraintName="PK_MG_JSON_FILES"
+                tableName="MG_JSON_FILES"
+        />
+    </changeSet>
+    <!--***************************** create Action Listener Table *********************-->
+    <changeSet author="JUPITER (generated)" id="1503460396396-5">
+        <createTable tableName="MG_ACTION_LISTENER">
+
+
+            <column name="PATH" type="VARCHAR(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="THREAD_NAME" type="VARCHAR(255)">
+                <constraints  nullable="false"/>
+            </column>
+            <column name="SUCCESS_FOLDERS" type="INT" defaultValueNumeric="0"></column>
+            <column name="SUCCESS_DOCUMENTS" type="INT" defaultValueNumeric="0"></column>
+
+            <column name="FAILED_FOLDERS" type="INT" defaultValueNumeric="0"></column>
+            <column name="FAILED_DOCUMENTS" type="INT" defaultValueNumeric="0"></column>
+
+            <column name="INFO_FILE_ID" type="int">
+                <constraints unique="true" nullable="false" foreignKeyName="fk_listener_infofile"
+                             references="MG_INFO_FILES(INFO_ID)"/>
+            </column>
+
+        </createTable>
+        <!--*********** 2 PK **********-->
+        <addPrimaryKey
+                columnNames="PATH, INFO_FILE_ID"
+                constraintName="PK_MG_ACTION_LISTENER"
+                tableName="MG_ACTION_LISTENER"
+        />
+    </changeSet>
+
+    <!--*************************** create Exceptions Table **********************-->
+    <changeSet author="JUPITER (generated)" id="1503460396396-6">
+        <createTable tableName="MG_EXCEPTIONS">
+
+
+            <column name="EXCEPTION_COUNT" type="INT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="EXCEPTION_ID" type="INT" defaultValueNumeric="0"></column>
+            <column name="INFO_FILE_ID" type="int">
+                <constraints  nullable="false" foreignKeyName="fk_EXCEPTIONS_infofile"
+                             references="MG_INFO_FILES(INFO_ID)"/>
+            </column>
+
+        </createTable>
+        <!--*********** 2 PK **********-->
+        <addPrimaryKey
+                columnNames="EXCEPTION_ID, INFO_FILE_ID"
+                constraintName="PK_MG_EXCEPTIONS"
+                tableName="MG_EXCEPTIONS"
+        />
+    </changeSet>
+
+
+    <!--<changeSet id="1503460396396-4" author="JUPITER (generated)">-->
+    <!--<insert tableName="INFO_FILES">-->
+    <!--<column name="PATH" value="path"></column>-->
+    <!--<column name="STATUS" value="success"></column>-->
+    <!--<column name="PROCESSING_DATE" defaultValueDate="${now}"></column>-->
+    <!--<column name="FINISH_STATUS" value="finish"></column>-->
+    <!--<column name="DESC" value="desc"></column>-->
+    <!--</insert>-->
+
+    <!--</changeSet>-->
+</databaseChangeLog>

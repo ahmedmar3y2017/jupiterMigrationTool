@@ -1,0 +1,178 @@
+{
+ "definitions": {},
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "http://example.com/root.json",
+ "type": "object",
+ "title": "The Root Schema",
+ "required": [
+  "documentsPhysicalPath",
+  "mode",
+  "data"
+ ],
+ "properties": {
+  "documentsPhysicalPath": {
+   "$id": "#/properties/documentsPhysicalPath",
+   "type": "string",
+   "title": "The Documentsphysicalpath Schema",
+   "default": "",
+   "examples": [
+    "D:\\Jupiter Migration Test\\documents"
+   ],
+   "pattern": "^(.*)$"
+  },
+  "mode": {
+   "$id": "#/properties/mode",
+   "type": "string",
+   "title": "The Mode Schema",
+   "default": "",
+   "examples": [
+    "create"
+   ],
+   "pattern": "^(.*)$"
+  },
+  "data": {
+   "$id": "#/properties/data",
+   "type": "array",
+   "title": "The Data Schema",
+   "items": {
+    "$id": "#/properties/data/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "required": [
+     "path",
+     "folders"
+    ],
+    "properties": {
+     "path": {
+      "$id": "#/properties/data/items/properties/path",
+      "type": "object",
+      "title": "The Path Schema",
+      "required": [
+       "JupiterPath"
+      ],
+      "properties": {
+       "JupiterPath": {
+        "$id": "#/properties/data/items/properties/path/properties/JupiterPath",
+        "type": "string",
+        "title": "The Jupiterpath Schema",
+        "default": "",
+        "examples": [
+         "new KP/963369"
+        ],
+        "pattern": "^(.*)$"
+       }
+      }
+     },
+     "folders": {
+      "$id": "#/properties/data/items/properties/folders",
+      "type": "array",
+      "title": "The Folders Schema",
+      "items": {
+       "$id": "#/properties/data/items/properties/folders/items",
+       "type": "object",
+       "title": "The Items Schema",
+       "required": [
+        "indexclass",
+        "documents"
+       ],
+       "properties": {
+        "indexclass": {
+         "$id": "#/properties/data/items/properties/folders/items/properties/indexclass",
+         "type": "string",
+         "title": "The Indexclass Schema",
+         "default": "",
+         "examples": [
+          "Financial Disclosure"
+         ],
+         "pattern": "^(.*)$"
+        },
+        "Financial Disclosure": {
+         "$id": "#/properties/data/items/properties/folders/items/properties/FinancialDisclosure",
+         "type": "object",
+         "title": "The Financial disclosure Schema",
+         "default": null,
+         "properties": {
+          "Employee name": {
+           "$id": "#/properties/data/items/properties/folders/items/properties/FinancialDisclosure/properties/Employeename",
+           "type": "string",
+           "title": "The Employee name Schema",
+           "default": "",
+           "examples": [
+            "gemy 1001"
+           ],
+           "pattern": "^(.*)$"
+          },
+          "Payroll Number": {
+           "$id": "#/properties/data/items/properties/folders/items/properties/FinancialDisclosure/properties/PayrollNumber",
+           "type": "string",
+           "title": "The Payroll number Schema",
+           "default": "",
+           "examples": [
+            "1"
+           ],
+           "pattern": "^(.*)$"
+          }
+         }
+        },
+        "documents": {
+         "$id": "#/properties/data/items/properties/folders/items/properties/documents",
+         "type": "array",
+         "title": "The Documents Schema",
+         "items": {
+          "$id": "#/properties/data/items/properties/folders/items/properties/documents/items",
+          "type": "object",
+          "title": "The Items Schema",
+          "required": [
+           "indexclass",
+           "path"
+          ],
+          "properties": {
+           "indexclass": {
+            "$id": "#/properties/data/items/properties/folders/items/properties/documents/items/properties/indexclass",
+            "type": "string",
+            "title": "The Indexclass Schema",
+            "default": "",
+            "examples": [
+             "Doc"
+            ],
+            "pattern": "^(.*)$"
+           },
+           "Doc": {
+            "$id": "#/properties/data/items/properties/folders/items/properties/documents/items/properties/Doc",
+            "type": "object",
+            "title": "The Doc Schema",
+            "default": null,
+            "properties": {
+             "Label": {
+              "$id": "#/properties/data/items/properties/folders/items/properties/documents/items/properties/Doc/properties/Label",
+              "type": "string",
+              "title": "The Label Schema",
+              "default": "",
+              "examples": [
+               "gemy 2"
+              ],
+              "pattern": "^(.*)$"
+             }
+            }
+           },
+           "path": {
+            "$id": "#/properties/data/items/properties/folders/items/properties/documents/items/properties/path",
+            "type": "string",
+            "title": "The Path Schema",
+            "default": "",
+            "examples": [
+             "doc2.doc"
+            ],
+            "pattern": "^(.*)$"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

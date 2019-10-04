@@ -1,0 +1,10 @@
+POST http://localhost:8080/mail
+Content-Type: application/json
+
+{
+  "name": "Dan",
+  "toMail": "dan@gmail.com",
+  "mail": "You app is awesome :)"
+}
+
+###

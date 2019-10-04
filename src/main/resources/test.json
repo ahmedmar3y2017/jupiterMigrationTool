@@ -1,0 +1,197 @@
+{
+  "documentsPhysicalPath": "D:\\Jupiter Migration Test\\documents",
+  "mode": "create",
+  "data": [
+    {
+      "path": {
+        "JupiterPath": "new KP/963369"
+      },
+      "folders": [
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "COLL"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "CrediNil_ Retail Collections",
+                "Type": "COLL",
+                "Box_No": "1935",
+                "From_date": "1-1-2018",
+                "To_date": "28-01-2018",
+                "Customer_ID": "1000129519",
+                "Location": "E-51-102-6",
+                "Subject": "معالجة ديون الافراد",
+                "Barcode": "XRN90000466L"
+              },
+              "path": "XRN90000466L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "COLL"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "CrediNil_ Retail Collections",
+                "Type": "COLL",
+                "Box_No": "1935",
+                "From_date": "1-1-2018",
+                "To_date": "28-01-2018",
+                "Customer_ID": "1001349315",
+                "Location": "E-51-102-6",
+                "Subject": "معالجة ديون الافراد",
+                "Barcode": "XRN90000467L"
+              },
+              "path": "XRN90000467L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "Loans"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "Car Loans ",
+                "Type": "Loans",
+                "Box_No": "1953",
+                "From_date": "29-04-2018",
+                "To_date": "30-04-2018",
+                "Customer_ID": "1000956904",
+                "Location": "E-30-111-4",
+                "Subject": "Financed Cases",
+                "Barcode": "XRN90000628L"
+              },
+              "path": "XRN90000628L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "Loans"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "Car Loans ",
+                "Type": "Loans",
+                "Box_No": "1953",
+                "From_date": "29-04-2018",
+                "To_date": "30-04-2018",
+                "Customer_ID": "1001921360",
+                "Location": "E-30-111-4",
+                "Subject": "Financed Cases",
+                "Barcode": "XRN90000629L"
+              },
+              "path": "XRN90000629L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "LG"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "LOCAL  L/Gs - Alex Center",
+                "Type": "LG",
+                "Box_No": "371",
+                "From_date": "1-7-2017",
+                "To_date": "31-12-2017",
+                "Customer_ID": "1000573840",
+                "Location": "E-32-55-4",
+                "Subject": "Local L/Gs ",
+                "Barcode": "XRN90000806L"
+              },
+              "path": "XRN90000806L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "LG"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "LOCAL  L/Gs - Alex Center",
+                "Type": "LG",
+                "Box_No": "371",
+                "From_date": "1-7-2017",
+                "To_date": "31-12-2017",
+                "Customer_ID": "1001179974",
+                "Location": "E-32-55-4",
+                "Subject": "Local L/Gs ",
+                "Barcode": "XRN90000807L"
+              },
+              "path": "XRN90000807L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "LC"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "L C",
+                "Type": "LC",
+                "Box_No": "5987",
+                "From_date": "31-05-2018",
+                "To_date": "17-10-2018",
+                "Customer_ID": "1001208727",
+                "Location": "E-29-150-4",
+                "Subject": "L/C",
+                "Barcode": "XRN90000496L"
+              },
+              "path": "XRN90000496L.pdf"
+            }
+          ]
+        },
+        {
+          "indexclass": "Category",
+          "Category": {
+            "Cat Name": "LC"
+          },
+          "documents": [
+            {
+              "indexclass": "WH Docs",
+              "WH Docs": {
+                "Owner": "L C",
+                "Type": "LC",
+                "Box_No": "5987",
+                "From_date": "31-05-2018",
+                "To_date": "17-10-2018",
+                "Customer_ID": "1001208727",
+                "Location": "E-29-150-4",
+                "Subject": "L/C",
+                "Barcode": "XRN90000497L"
+              },
+              "path": "XRN90000497L.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

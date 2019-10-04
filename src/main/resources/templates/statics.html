@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Jupiter Migration Tool </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <!--<script type="text/javascript"-->
+    <!--src="webjars/jquery/2.2.4/jquery.min.js"></script>-->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <link rel="stylesheet"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet"
+          href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css"/>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+    <script type="text/javascript"
+            th:src="@{/js/js.js}"></script>
+
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<!--Header -->
+<div th:replace="fragments/header :: header"/>
+
+<!--******* body -->
+
+<div class="container">
+    <form class="form-inline form-horizontal" id="search-form">
+
+        <div class="input-group input-group-lg" style="width: 25%">
+            <input id="inputSearch" type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+                <button id="searchButton" class="btn btn-default" type="submit"><i
+                        class="glyphicon glyphicon-search"></i></button>
+            </div>
+
+        </div>
+    </form>
+    <div class="input-group input-group-lg" style="width: 25%">
+
+        <button id="deleteSelected" type="button" class="btn btn-danger">Delete Selected</button>
+        <button id="deleteALl" type="button" class="btn btn-danger">Delete All</button>
+
+    </div>
+
+
+    <table id="dtOrderExample" class="table table-striped table-bordered table-sm table-hover" cellspacing="0">
+        <thead>
+        <tr>
+            <th>infoId</th>
+            <th>fileName</th>
+            <th>type</th>
+            <th>status</th>
+            <th>finishStatus</th>
+            <th>addingDate</th>
+            <th>finishDate</th>
+            <th>countDocuments</th>
+            <th>countFolders</th>
+            <th>threadName</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="static : ${staticsList}">
+            <td th:text="${static.infoId}"></td>
+            <td th:text="${static.fileName}"></td>
+            <td th:text="${static.type}"></td>
+            <td th:text="${static.status}"></td>
+            <td th:text="${static.finishStatus}"></td>
+            <td th:text="${static.addingDate}"></td>
+            <td th:text="${static.finishDate}"></td>
+            <td th:text="${static.countDocuments}"></td>
+            <td th:text="${static.countFolders}"></td>
+            <td th:text="${static.threadName}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- staticsList pagination -->
+    <nav class="center-block text-center " aria-label="Pagination" th:if="${staticsList.totalPages gt 0}">
+        <ul class="pagination justify-content-center font-weight-medium">
+            <li class="page-item" th:classappend="${staticsList.number eq 0} ? 'disabled'">
+                <a class="page-link "
+                   th:href="@{/staticsList?page={id}(id=${staticsList.number lt 2 ? 1 : staticsList.number})}"
+                   aria-label="Previous"
+                   title="Previous Page" rel="tooltip">
+                    <!--<span aria-hidden="true" data-feather="chevrons-left" width="20" height="20"></span>-->
+                    <span aria-hidden="true">&laquo;</span>
+
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${i eq staticsList.number + 1} ? 'active'"
+                th:each="i : ${#numbers.sequence( staticsList.number + 1, staticsList.totalPages > 10 + staticsList.number ? staticsList.number + 10 : staticsList.totalPages, 1)}">
+                <a class="page-link" th:href="@{/staticsList?page={id}(id=${i})}" th:text="${i}"
+                   th:title="${'Page '+ i}"
+                   rel="tooltip"></a>
+            </li>
+            <li class="page-item disabled" th:if="${staticsList.number + 10 < staticsList.totalPages}">
+                <a class="page-link " href="#">
+                    <!--<span data-feather="more-horizontal" width="20" height="20"></span>-->
+                    <span aria-hidden="true">&raquo;</span>
+
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${staticsList.number + 1 eq staticsList.totalPages} ? 'disabled'">
+                <a class="page-link " th:href="@{/staticsList?page={id}(id=${staticsList.number + 2})}"
+                   aria-label="Next"
+                   title="Next Page" rel="tooltip">
+                    <!--<span aria-hidden="true" data-feather="chevrons-right" width="20" height="20"></span>-->
+                    <span aria-hidden="true">&raquo;</span>
+
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <h5><span>infoId : </span> <span id="infoIdModal"></span></h5>
+                <h5><span>type : </span><span id="typeModal"></span></h5>
+                <h5><span>status : </span><span id="statusModal"></span></h5>
+                <h5><span>finishStatus : </span><span id="finishStatusModal"></span></h5>
+                <h5><span>addingDate : </span><span id="addingDateModal"></span></h5>
+                <h5><span>processingDate : </span><span id="processingDateModal"></span></h5>
+                <h5><span>finishDate : </span><span id="finishDateModal"></span></h5>
+                <h5><span>countDocuments : </span><span id="countDocumentsModal"></span></h5>
+                <h5><span>countFolders : </span><span id="countFoldersModal"></span></h5>
+                <h5><span>threadName : </span><span id="threadNameModal"></span></h5>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.Footer -->
+
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

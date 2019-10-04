@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="950" pageHeight="842" columnWidth="910" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="84feeac3-d1f7-4503-84bf-fc3fa153df55">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="path" class="java.lang.String"/>
+	<field name="threadName" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="addingDate" class="java.sql.Timestamp"/>
+	<field name="countFolders" class="java.math.BigDecimal"/>
+	<field name="countDocuments" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="36" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="345" y="19" width="230" height="30" uuid="04d35299-5eb0-4a34-b340-3ca5cf8290fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="20" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Json Files ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="224" height="20" uuid="bcaf85c0-57ff-4a34-af27-cbf1330125ae"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Path]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="10" width="104" height="20" uuid="faf9b9ee-7cf2-4ea5-80b8-d371c3c753b9"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ThreadName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="10" width="85" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="10" width="62" height="20" uuid="09b47abe-09b2-479a-bb76-9770e361a23c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="575" y="10" width="117" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AddingDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="714" y="10" width="100" height="20" uuid="da25d4fd-32ba-484a-a6cb-5d80c8d1ae78"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CountFolders]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="838" y="10" width="86" height="20" uuid="84fde23e-a4f6-43bf-9571-1dd17a4b6ec0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CountDocuments]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="224" height="16" uuid="99fa4c16-cfe2-4482-828e-4439abb9e8f0"/>
+				<textFieldExpression><![CDATA[$F{path}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="4" width="85" height="16" uuid="ba6e9cfa-6d4c-470b-8bc4-eb2e3411c21e"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="4" width="62" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="575" y="4" width="117" height="16" uuid="8992d0ad-1f5e-4210-b50b-1e29dc66f119"/>
+				<textFieldExpression><![CDATA[$F{addingDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="4" width="104" height="16" uuid="fcdd8979-dc44-46e3-be56-11e5f33b8e0c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73fad7b3-74b5-4436-bd46-d2b9c3c113fd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{threadName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="714" y="4" width="100" height="16" uuid="ab7cb8ce-d742-44aa-bcde-78cf8489ad9d"/>
+				<textFieldExpression><![CDATA[$F{countFolders}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="840" y="4" width="84" height="16" uuid="ecce3056-aa73-4b14-9389-dc10196623fc"/>
+				<textFieldExpression><![CDATA[$F{countDocuments}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

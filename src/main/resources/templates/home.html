@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Jupiter Migration Tool </title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+    <script type="text/javascript"
+            src="webjars/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+
+<!--<h4>Welcome to Thymeleaf Spring Boot web application</h4>-->
+<div class="container jumbotron">
+    <h2 class="h1-responsive">Jupiter Archiving Tool </h2>
+    <p class="lead">“Jupiter Archiving Tool” designed to import huge data [folder-documents] to Jupiter automatically by listening to shared folder which will contain:
+        •	JSON files -contain the metadata of the pdf documents-files-.
+        •	Folder contain pdf documents .</p>
+    <hr class="my-2">
+    <p>Jupiter Archiving Tool Scope depends on receiving from Xerox shared a folder that contains:
+        •	JSON files (contain Jupiter import location and Items metadata).
+        •	folder contains this items media files.
+
+    </p>
+    <a class="btn btn-primary btn-lg" role="button"  target="_blank" th:href="@{|/downloadDoc|}">Learn more</a>
+
+</div>
+
+
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
